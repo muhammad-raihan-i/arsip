@@ -1,0 +1,11 @@
+[
+  {
+    "fullname": "Admin",
+    "username": "admin",
+    "email": "admin@admin.com",
+    "password": "Admin123?",
+    "DivisionId": 1,
+    "role": "admin",
+    "active": true
+  }
+]

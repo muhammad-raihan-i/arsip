@@ -1,0 +1,9 @@
+npm install sequelize pg bcryptjs jsonwebtoken express cors
+npm install -D sequelize-cli nodemon
+npx sequelize init
+npx sequelize db:create
+npx sequelize model:create --name User --attributes fullname:string,username:string,email:string,password:string,division:string,role:string,active:boolean
+npx sequelize model:create --name Document --attributes title:string,bodies:string,division:string,active:boolean,UserId:integer
+npx sequelize db:migrate
+npx sequelize seed:create --name User
+npx sequelize seed:create --name Document
