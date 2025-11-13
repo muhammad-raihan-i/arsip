@@ -2,6 +2,17 @@ import axios from "axios";
 const http = axios.create({
   baseURL: "http://localhost:2050",
 });
+http.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+
+  if (config.data instanceof FormData) {
+    // let the browser/axios set the correct multipart boundary
+    delete config.headers["Content-Type"];
+  }
+
+  return config;
+});
 export default http;
 
 // export default http;

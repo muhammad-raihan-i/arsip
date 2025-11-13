@@ -4,6 +4,7 @@ import EmptyPage from "./pages/EmptyPage";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import DocFormPage from "./pages/DocumentFormPage";
+import DocOnePage from "./pages/DocumentOnePage";
 import DivPage from "./pages/DivisionPage";
 import DivFormPage from "./pages/DivisionFormPage";
 import UserPage from "./pages/UserPage";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/admin-user" element={<UserPage />} />
           <Route path="/admin-user/create" element={<UserFormPage />} />
           <Route path="/admin-user" element={<UserPage />} />
+          <Route path="/documents/:id" element={<DocOnePage />} />
         </Routes>
       </BrowserRouter>
     </>

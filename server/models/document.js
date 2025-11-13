@@ -22,12 +22,20 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: "Title required" },
         },
       },
-      bodies: {
+      file: {
         type: DataTypes.TEXT,
         allowNull: false,
         validate: {
-          notNull: { msg: "Bodies required" },
-          notEmpty: { msg: "Bodies required" },
+          notNull: { msg: "File required" },
+          notEmpty: { msg: "File required" },
+        },
+      },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "Description required" },
+          notEmpty: { msg: "Description required" },
         },
       },
       DivisionId: {

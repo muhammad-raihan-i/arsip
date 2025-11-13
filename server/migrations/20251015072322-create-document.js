@@ -13,7 +13,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
-      bodies: {
+      file: {
+        type: Sequelize.TEXT,
+      },
+      description: {
         type: Sequelize.TEXT,
       },
       DivisionId: {

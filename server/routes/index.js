@@ -21,25 +21,30 @@ routes.put("/users/update/:id", userController.update);
 
 routes.post(
   "/documents/create",
-  upload.single("bodies"),
+  (req, res, next) => {
+    console.log("endpoint /documents/create were hit");
+    next();
+  },
+  upload.single("file"),
 
   function (req, res, next) {
     // res.status(200).json(req.file);
     documentController.create(req, res, next);
   }
 );
-routes.post(
-  "/documents/upload",
-  multerHandler
-  //(req, res, next) => {
-  // res.status(200).json({ m: "h" });}
-);
-routes.post("/documents/k", upload.single("file"), function (q, s, next) {
-  s.status(200).send(q.file);
-});
+// routes.post(
+//   "/documents/upload",
+//   multerHandler
+//   //(req, res, next) => {
+//   // res.status(200).json({ m: "h" });}
+// );
+// routes.post("/documents/k", upload.single("file"), function (q, s, next) {
+//   s.status(200).send(q.file);
+// });
 
 routes.get("/documents/read", documentController.readAll);
 routes.get("/documents/read/:id", documentController.readOne);
+routes.get("/documents/download/:id", documentController.download);
 routes.put("/documents/update/:id", documentController.update);
 routes.delete("/documents/delete/:id", documentController.delete);
 

@@ -16,13 +16,13 @@ export default function DivFormPage() {
     fetchData(search);
   }
   async function fetchData(search0 = "") {
-    const searchHelper = "";
+    let searchHelper = "";
     try {
       if (search0) {
         searchHelper = "?search=";
       }
       const Authorization = "Bearer " + localStorage.getItem("token");
-      const data = await http.get("/divisions/read" + searchHelper + search0, {
+      const data = await http.get("/divisions/read", {
         headers: { Authorization },
       });
       setPageData(data.data.data);
@@ -37,28 +37,6 @@ export default function DivFormPage() {
       <NavbarDivi />
       <div className="p-3">
         <h2>Divisions List</h2>
-        Search <br />
-        <div>
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
-            <button
-              className="btn btn-outline-success"
-              type="submit"
-              onSubmit={hSearch}
-            >
-              Search
-            </button>
-          </form>
-        </div>
-        Pages prev 1 2 3 4 ... 10 next
         <table className="table">
           <thead>
             <tr>
